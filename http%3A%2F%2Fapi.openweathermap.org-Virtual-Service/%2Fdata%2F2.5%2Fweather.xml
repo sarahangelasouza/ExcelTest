@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction xmlns:con="http://eviware.com/soapui/config" name="/data/2.5/weather" method="GET" resourcePath="/data/2.5/weather" id="42fcd6bb-01e6-4509-8800-467ec35dd3f8">
+  <con:settings id="06c00b29-c47b-449b-93a9-45f138cf0558">
+    <con:setting id="42fcd6bb-01e6-4509-8800-467ec35dd3f8fileName">%2Fdata%2F2.5%2Fweather</con:setting>
+  </con:settings>
+  <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+  <con:dispatchConfig/>
+  <con:dispatchXPath/>
+  <con:routeEnabled>true</con:routeEnabled>
+  <con:conditionalRoutingEnabled>true</con:conditionalRoutingEnabled>
+  <con:routeScript>// Route script is used to dynamically route requests
+// based on requests. Return true/false to indicate whether
+// a request should be routed or not
+
+
+// Route based on path
+def r = mockRequest.path
+if (r.contains('2.5')) {
+    return false
+} else {
+    return true
+}
+
+
+/*
+// Route based on query parameter
+def queryString = mockRequest.queryString
+if (queryString.contains('q=Boston')) {
+    return false
+} else {
+    return true
+}
+*/
+
+/*
+// Route based on body
+def requestBody = mockRequest.requestContent
+if (requestBody.contains('sample')) {
+    return true
+} else {
+    return false
+}
+*/
+
+/*
+// Route based on header
+def headerValue = mockRequest.requestHeaders.get("Route").get(0)
+
+if (headerValue) {
+    return true
+} else {
+    return false
+}
+*/</con:routeScript>
+  <con:response name="It's Tricky Tricky" id="e8dcb7a8-18f2-4af3-bc47-fa3a0ad961d0" httpResponseStatus="200" mediaType="application/json" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570">
+    <con:settings/>
+    <con:responseContent>{
+	"Tricky": "It's Tricky to rock a rhyme, to rock a rhyme that's right on time. It's Tricky"
+}</con:responseContent>
+  </con:response>
+</con:restMockAction>
